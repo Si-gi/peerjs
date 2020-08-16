@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
      * The iceServers on this example are public and can be used for your project.
      */
     var peer = new Peer({
-        host: "localhost",
+        host: "https://videoys-server.herokuapp.com",
         port: 9000,
-        path: '/peerjs',
+        path: '/myapp',
         debug: 3,
         config: {
             'iceServers': [

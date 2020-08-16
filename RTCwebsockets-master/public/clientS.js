@@ -1,4 +1,4 @@
-const socket = io('ws://127.0.0.1:3000', {transports: ['websocket']}); //location of where server is hosting socket app
+/*const socket = io('ws://127.0.0.1:3000', {transports: ['websocket']}); //location of where server is hosting socket app
 socket.on('connect', function () {
     console.log('connected!');
     socket.emit('greet', { message: 'Hello Mr.Server!' });
@@ -9,7 +9,7 @@ socket.on('connect', function () {
 socket.on('chat-message', data =>{
     console.log(data)
 });
-
+*/
 const cameraOptions = document.querySelector('.video-options>select');
 const video = document.getElementById("lVideo");
 const canvas = document.querySelector('canvas');
