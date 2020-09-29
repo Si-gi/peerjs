@@ -4,6 +4,11 @@ const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 
+var httpsOptions = {
+  key: fs.readFileSync('conf/key.pem'),
+  cert: fs.readFileSync('conf/crt.pem')
+};
+
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
