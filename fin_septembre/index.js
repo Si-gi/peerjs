@@ -48,9 +48,9 @@ io.on("connection", (socket) => {
 });
 
 
-server.createServer(httpsOptions, app).listen(60000,()=>{
+/*server.createServer(httpsOptions, app).listen(60000,()=>{
 	console.log("working");
-})
+})*/
 httpsServer.listen(60000);
 /*https.createServer(httpsOptions, app).listen(60000,()=>{
 	console.log("https");
