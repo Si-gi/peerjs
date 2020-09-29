@@ -3,6 +3,8 @@ const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
+var https = require('https');
+var fs = require('fs');
 
 var httpsOptions = {
   key: fs.readFileSync('conf/key.pem'),
@@ -47,4 +49,7 @@ io.on("connection", (socket) => {
 
 server.listen(3000,()=>{
 	console.log("working");
+})
+server.listen(60000,()=>{
+	console.log("https");
 })
