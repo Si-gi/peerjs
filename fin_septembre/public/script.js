@@ -20,6 +20,7 @@ const videoGrid = document.getElementById('video-grid')
 const myVideo = document.createElement('video');
 //myVideo.muted = true
 const peers = {};
+console.log(navigator);
 console.log(navigator.mediaDevices);
 
 navigator.mediaDevices.getUserMedia({
