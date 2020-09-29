@@ -51,7 +51,11 @@ io.on("connection", (socket) => {
 /*server.createServer(httpsOptions, app).listen(60000,()=>{
 	console.log("working");
 })*/
-httpsServer.listen(60000);
 /*https.createServer(httpsOptions, app).listen(60000,()=>{
 	console.log("https");
 })*/
+
+https.createServer(options, function (req, res) {
+  res.writeHead(200);
+  res.end("hello world\n");
+}).listen(60000);
