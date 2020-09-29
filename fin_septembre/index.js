@@ -11,7 +11,7 @@ var httpsOptions = {
   ca   : fs.readFileSync("conf/csr.pem"),
   cert: fs.readFileSync('conf/cert.pem')
 };
-
+var httpsServer = https.createServer(httpsOptions, app);
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
@@ -51,6 +51,7 @@ io.on("connection", (socket) => {
 server.createServer(httpsOptions, app).listen(60000,()=>{
 	console.log("working");
 })
+httpsServer.listen(60000);
 /*https.createServer(httpsOptions, app).listen(60000,()=>{
 	console.log("https");
 })*/
