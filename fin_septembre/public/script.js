@@ -7,7 +7,7 @@ var myUserId = "";
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id)
 })
-
+var sharing = false;
 
   
 const videoGrid = document.getElementById('video-grid')
@@ -18,7 +18,7 @@ const videoGrid = document.getElementById('video-grid')
 //myScreen.muted = true;
 
 const myVideo = document.createElement('video');
-myVideo.muted = true
+//myVideo.muted = true
 const peers = {};
 
 
@@ -97,24 +97,48 @@ function connectToNewUser(userId, stream) {
 */
 
 async function screenCapture() {
-  
-  let displayMediaOptions = {
-    video: {
-      cursor: "always"
-    },
-    audio: false
-  };
-  const screenElem = document.getElementById('screen-shared');
-  
-  try {
-    captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+  if(!sharing){
+    sharing = true;
+    let displayMediaOptions = {
+      video: {
+        cursor: "always"
+      },
+      audio: {
+        echoCancellation: true,
+        noiseSuppression: true,
+        sampleRate: 44100
+      }
+    };
+    const screenElem = document.getElementById('screen-shared');
     
-    screenElem.srcObject = captureStream ;
-    myPeer.call(myUserId, captureStream);  
-  } catch(err) {
-    console.log(err);
+    try {
+      captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+      let myVideo = document.createElement('video');
+      myVideo.id ="myScreenCapture"
+      myVideo.srcObject = captureStream ;
+      myVideo.setAttribute("controls", "");
+      myVideo.addEventListener('loadedmetadata', () => {
+        myVideo.play()
+      })
+      screenElem.append(myVideo);
+      
+      myPeer.call(myUserId, captureStream);  
+      document.getElementById("screen-text").textContent="stop share";
+    } catch(err) {
+      console.log(err);
+    }
+    
+  }else{
+    
+    myScreen = document.getElementById("myScreenCapture");
+    let tracks = myScreen.srcObject.getTracks();
+
+    tracks.forEach(track => track.stop());
+    myScreen.srcObject = null;
+    myScreen.remove();
+    document.getElementById("screen-text").textContent="Screen share";
+    sharing = false;
   }
-  
 }    
 
 
