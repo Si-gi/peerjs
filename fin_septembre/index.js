@@ -1,11 +1,13 @@
-const express = require('express')
-const app = express()
-const server = require('http').Server(app)
-const io = require('socket.io')(server)
-const { v4: uuidV4 } = require('uuid')
-var https = require('https');
 var fs = require('fs');
 var url = require('url');
+
+const server = require('http').Server(app)
+var https = require('https');
+const io = require('socket.io')(server)
+const { v4: uuidV4 } = require('uuid')
+const express = require('express')
+const app = express();
+
 
 console.log("start");
 var httpsOptions = {
@@ -58,12 +60,5 @@ server.listen(3000,()=>{
 	console.log("https");
 })*/
 
-https.createServer(httpsOptions, function (req, res) {
-  var q = url.parse(req.url, true);
- 
-  console.log(q.pathname);
-  console.log('request', req.url);
-  console.log("res" + res);
-  res.writeHead(200);
-  res.end("hello world\n");
-}).listen(60000, () =>{});
+httpsServer = https.createServer(httpsOptions, app);
+httpsServer.listen(60000, () =>{console.log("https working")});
