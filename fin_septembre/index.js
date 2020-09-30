@@ -13,12 +13,7 @@ var httpsOptions = {
   cert: fs.readFileSync('conf/cert.pem')
 };
 console.log(httpsOptions);
-https.createServer(httpsOptions, function (req, res) {
-  console.log('request', req.url, req.body, req.method);
-  console.log("res" + res);
-  res.writeHead(200);
-  res.end("hello world\n");
-}).listen(60000);
+
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
@@ -62,3 +57,9 @@ server.listen(3000,()=>{
 	console.log("https");
 })*/
 
+https.createServer(httpsOptions, function (req, res) {
+  console.log('request', req.url, req.body, req.method);
+  console.log("res" + res);
+  res.writeHead(200);
+  res.end("hello world\n");
+}).listen(60000);
