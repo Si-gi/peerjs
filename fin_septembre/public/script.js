@@ -12,12 +12,13 @@ var sharing = false;
   
 const videoGrid = document.getElementById('video-grid')
 var outputDevices = [];
-var medias = navigator.mediaDevices.enumerateDevices();
-for (var i = 0;i <= medias.length - 1;i++){
-  console.log(medias[i]);
-  //w[i] = new Option(medias[i].text,d[i].val,false,false)
-  }
-console.log(medias['PromiseValue']);
+navigator.mediaDevices.enumerateDevices()
+.then(function(devices) {
+  devices.forEach(function(device) {
+    console.log(device.kind + ": " + device.label +
+                " id = " + device.deviceId);
+  });
+})
 
 //const myScreen = document.createElement('video');
 //myScreen.muted = true;
