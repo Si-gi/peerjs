@@ -3,12 +3,12 @@ var url = require('url');
 
 
 var https = require('https');
-const io = require('socket.io')(server)
+
 const { v4: uuidV4 } = require('uuid')
 const express = require('express')
 const app = express();
 const server = require('http').Server(app)
-
+const io = require('socket.io')(server)
 console.log("start");
 var httpsOptions = {
   key: fs.readFileSync('conf/key.pem'),
