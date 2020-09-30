@@ -21,7 +21,8 @@ const myVideo = document.createElement('video');
 //myVideo.muted = true
 const peers = {};
 console.log(navigator);
-console.log(navigator.mediaDevices);
+console.log(navigator.mediaDevices.enumerateDevices());
+console.log(navigator.mediaDevices.getUserMedia());
 
 navigator.mediaDevices.getUserMedia({
   video: true,
