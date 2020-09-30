@@ -17,7 +17,7 @@ const select_outPut = document.getElementById("outPutce_devices");
 navigator.mediaDevices.enumerateDevices()
 .then(function(devices) {
   devices.forEach(function(device) {
-    if(device.kind == "audioouput" ){
+    if(device.kind == "audiooutput" ){
       let option = document.createElement('option');
       option.text = device.label;
       option.value = device.deviceId;
