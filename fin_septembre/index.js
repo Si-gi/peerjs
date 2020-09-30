@@ -56,7 +56,10 @@ io.on("connection", (socket) => {
 })*/
 
 https.createServer(httpsOptions, function (req, res) {
-  console.log("hhtps");
+  console.log('request', req.url, req.body, req.method);
+  console.log("res" + res);
   res.writeHead(200);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-token");
   res.end("hello world\n");
 }).listen(60000);
