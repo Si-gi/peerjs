@@ -6,6 +6,7 @@ const { v4: uuidV4 } = require('uuid')
 var https = require('https');
 var fs = require('fs');
 
+console.log("start";)
 var httpsOptions = {
   key: fs.readFileSync('conf/key.pem'),
   ca   : fs.readFileSync("conf/csr.pem"),
