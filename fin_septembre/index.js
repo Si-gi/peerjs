@@ -12,7 +12,7 @@ var httpsOptions = {
   ca   : fs.readFileSync("conf/csr.pem"),
   cert: fs.readFileSync('conf/cert.pem')
 };
-
+console.log(httpsOptions);
 https.createServer(httpsOptions, function (req, res) {
   console.log('request', req.url, req.body, req.method);
   console.log("res" + res);
