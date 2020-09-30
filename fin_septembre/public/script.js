@@ -23,7 +23,7 @@ navigator.mediaDevices.enumerateDevices()
       option.value = device.deviceId;
       select_outPut.options.add(option);
       ///select_outPut.append(option);
-      medias_output.push({"label": device.label, "id" : device.deviceId})
+      outputDevices.push({"label": device.label, "id" : device.deviceId})
     }
     console.log(device.kind + ": " + device.label +
                 " id = " + device.deviceId);
