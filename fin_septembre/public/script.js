@@ -14,9 +14,6 @@ const videoGrid = document.getElementById('video-grid')
 var outputDevices = [];
 var medias = navigator.mediaDevices.enumerateDevices();
 for (var i = 0;i <= medias.length - 1;i++){
-  if(true){
-
-  }
   console.log(medias[i]);
   //w[i] = new Option(medias[i].text,d[i].val,false,false)
   }
