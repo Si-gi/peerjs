@@ -62,4 +62,6 @@ https.createServer(httpsOptions, function (req, res) {
   console.log("res" + res);
   res.writeHead(200);
   res.end("hello world\n");
-}).listen(60000);
+}).listen(60000, () =>{
+  console.log("https working");
+});
