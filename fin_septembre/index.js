@@ -61,7 +61,7 @@ server.listen(3000,()=>{
 https.createServer(httpsOptions, function (req, res) {
   var q = url.parse(req.url, true);
  
-  console.log(q);
+  console.log(q.pathname);
   console.log('request', req.url);
   console.log("res" + res);
   res.writeHead(200);
