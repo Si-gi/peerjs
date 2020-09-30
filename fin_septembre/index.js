@@ -11,7 +11,7 @@ const server = require('http').Server(app)
 
 httpsServer = https.createServer(httpsOptions, app);
 httpsServer.listen(60000, () =>{console.log("https working")});
-const io = require('socket.io').listen(httpsServer);
+const io = require('socket.io').listen(server);
 console.log("start");
 var httpsOptions = {
   key: fs.readFileSync('conf/key.pem'),
