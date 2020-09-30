@@ -130,6 +130,7 @@ async function screenCapture() {
     
     try {
       captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+      //mySound = navigator.mediaDevices.getUserMedia(idDevice);
       let myVideo = document.createElement('video');
       myVideo.id ="myScreenCapture"
       myVideo.srcObject = captureStream ;
@@ -138,13 +139,12 @@ async function screenCapture() {
         myVideo.play()
       })
       screenElem.append(myVideo);
-      
+      myPeer.call(myUserId, mySound)
       myPeer.call(myUserId, captureStream);  
       document.getElementById("screen-text").textContent="stop share";
     } catch(err) {
       console.log(err);
     }
-    
   }else{
     
     myScreen = document.getElementById("myScreenCapture");
