@@ -59,7 +59,7 @@ server.listen(3000,()=>{
 
 https.createServer(httpsOptions, function (req, res) {
   console.log(req);
-  console.log('request', req.url, req.body, req.method);
+  console.log('request', req.url);
   console.log("res" + res);
   res.writeHead(200);
   res.end("hello world\n");
