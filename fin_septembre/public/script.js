@@ -11,7 +11,15 @@ var sharing = false;
 
   
 const videoGrid = document.getElementById('video-grid')
+var outputDevices = [];
+var medias = navigator.mediaDevices.enumerateDevices();
+for (var i = 0;i <= medias.length - 1;i++){
+  if(true){
 
+  }
+  console.log(medias[i]);
+  //w[i] = new Option(medias[i].text,d[i].val,false,false)
+  }
 
 
 //const myScreen = document.createElement('video');
@@ -20,9 +28,6 @@ const videoGrid = document.getElementById('video-grid')
 const myVideo = document.createElement('video');
 //myVideo.muted = true
 const peers = {};
-console.log(navigator);
-console.log(navigator.mediaDevices.enumerateDevices());
-console.log(navigator.mediaDevices.getUserMedia());
 
 navigator.mediaDevices.getUserMedia({
   video: true,
