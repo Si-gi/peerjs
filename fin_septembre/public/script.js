@@ -17,7 +17,7 @@ for (var i = 0;i <= medias.length - 1;i++){
   console.log(medias[i]);
   //w[i] = new Option(medias[i].text,d[i].val,false,false)
   }
-
+console.log(medias);
 
 //const myScreen = document.createElement('video');
 //myScreen.muted = true;
