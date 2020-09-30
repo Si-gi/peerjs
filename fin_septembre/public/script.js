@@ -17,7 +17,7 @@ navigator.mediaDevices.enumerateDevices()
 .then(function(devices) {
   devices.forEach(function(device) {
     if(device.kind == "audioouput" ){
-      medias_output[] = {"label": device.label, "id" : device.deviceId}
+      medias_output.push({"label": device.label, "id" : device.deviceId})
     }
     console.log(device.kind + ": " + device.label +
                 " id = " + device.deviceId);
