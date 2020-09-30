@@ -12,17 +12,22 @@ var sharing = false;
   
 const videoGrid = document.getElementById('video-grid')
 var outputDevices = [];
-var medias = []
+var medias = [];
+const select_outPut = document.getElementById("outPutce_devices");
 navigator.mediaDevices.enumerateDevices()
 .then(function(devices) {
   devices.forEach(function(device) {
     if(device.kind == "audioouput" ){
+      let option = document.createElement('option');
+      select_outPut.append(option);
       medias_output.push({"label": device.label, "id" : device.deviceId})
     }
     console.log(device.kind + ": " + device.label +
                 " id = " + device.deviceId);
   });
 })
+
+
 
 //const myScreen = document.createElement('video');
 //myScreen.muted = true;
