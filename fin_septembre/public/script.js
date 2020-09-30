@@ -19,7 +19,10 @@ navigator.mediaDevices.enumerateDevices()
   devices.forEach(function(device) {
     if(device.kind == "audioouput" ){
       let option = document.createElement('option');
-      select_outPut.append(option);
+      option.text = device.label;
+      option.value = device.deviceId;
+      select_outPut.options.add(option);
+      //select_outPut.append(option);
       medias_output.push({"label": device.label, "id" : device.deviceId})
     }
     console.log(device.kind + ": " + device.label +
