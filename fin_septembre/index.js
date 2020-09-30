@@ -6,13 +6,21 @@ const { v4: uuidV4 } = require('uuid')
 var https = require('https');
 var fs = require('fs');
 
-console.log("start";)
+console.log("start");
 var httpsOptions = {
   key: fs.readFileSync('conf/key.pem'),
   ca   : fs.readFileSync("conf/csr.pem"),
   cert: fs.readFileSync('conf/cert.pem')
 };
 
+https.createServer(httpsOptions, function (req, res) {
+  console.log('request', req.url, req.body, req.method);
+  console.log("res" + res);
+  res.writeHead(200);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-token");
+  res.end("hello world\n");
+}).listen(60000);
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
@@ -56,11 +64,3 @@ io.on("connection", (socket) => {
 	console.log("https");
 })*/
 
-https.createServer(httpsOptions, function (req, res) {
-  console.log('request', req.url, req.body, req.method);
-  console.log("res" + res);
-  res.writeHead(200);
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-token");
-  res.end("hello world\n");
-}).listen(60000);
