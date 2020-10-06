@@ -43,11 +43,7 @@ const peers = {};
 
 navigator.mediaDevices.getUserMedia({
   video: true,
-  audio: {
-    echoCancellation: true,
-    noiseSuppression: true,
-    sampleRate: 44100
-  }
+  audio: false,
 }).then(stream => {
   addCamStream(myVideo, stream);
   
