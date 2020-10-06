@@ -1,4 +1,4 @@
-const socket = io('/')
+const socket = io('https://91.166.191.86:60000')
 const myPeer = new Peer(undefined, {
   host: '/',
   port: '3001'
