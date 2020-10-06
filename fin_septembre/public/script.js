@@ -1,8 +1,9 @@
 const socket = io()
-const myPeer = new Peer(undefined, {
+myPeer = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443})
+/*const myPeer = new Peer(undefined, {
   host: '/',
   port: '3001'
-})
+})*/
 var myUserId = "";
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id)
