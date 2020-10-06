@@ -46,7 +46,12 @@ navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true,
 }).then(stream => {
-  addCamStream(myVideo, {video:true,audio:false});
+  navigator.mediaDevices.getUserMedia({video: true, audio : false})
+    .then(myStream => {
+        addCamStream(myVideo, myStream);
+      }
+    );
+  
   myVideo.setAttribute("muted","true");
   myVideo.muted = true
   myPeer.on('call', call => {
