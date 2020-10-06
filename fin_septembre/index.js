@@ -9,9 +9,7 @@ const express = require('express')
 const app = express();
 const server = require('http').Server(app)
 
-httpsServer = https.createServer(httpsOptions, app);
-httpsServer.listen(60000, () =>{console.log("https working")});
-const io = require('socket.io').listen(server);
+
 console.log("start");
 
 var httpsOptions = {
@@ -28,6 +26,10 @@ var httpsOptions = {
     "!aNULL"
 ].join(':'),
 };
+
+httpsServer = https.createServer(httpsOptions, app);
+httpsServer.listen(60000, () =>{console.log("https working")});
+const io = require('socket.io').listen(server);
 
 console.log(httpsOptions);
 
