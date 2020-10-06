@@ -38,17 +38,18 @@ navigator.mediaDevices.enumerateDevices()
 //myScreen.muted = true;
 
 const myVideo = document.createElement('video');
+
 //myVideo.muted = true
 const peers = {};
 
 navigator.mediaDevices.getUserMedia({
   video: true,
-  audio: false,
+  audio: true,
 }).then(stream => {
   addCamStream(myVideo, stream);
-  
+  myVideo.setAttribute("muted","");
   myPeer.on('call', call => {
-    call.answer(stream)
+    call.answer(stream);
     const video = document.createElement('video')
     video.setAttribute("controls", "");
     call.on('stream', userVideoStream => {
