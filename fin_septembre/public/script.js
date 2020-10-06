@@ -84,7 +84,8 @@ navigator.mediaDevices.getUserMedia({
   });
 });
   socket.on('user-disconnected', userId => {
-	  if (peers[userId]) peers[userId].close()
+    if (peers[userId]) peers[userId].close();
+  
   })
 
 
@@ -102,6 +103,7 @@ function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
   video.setAttribute("controls", "");
+  video.setAttribute("id",userId);
   call.on('stream', userVideoStream => {
     addCamStream(video, userVideoStream)
   })
