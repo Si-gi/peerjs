@@ -17,7 +17,16 @@ console.log("start");
 var httpsOptions = {
   key: fs.readFileSync('conf/key.pem'),
   ca   : fs.readFileSync("conf/csr.pem"),
-  cert: fs.readFileSync('conf/cert.pem')
+  cert: fs.readFileSync('conf/cert.pem'),
+  ciphers: [
+    "ECDHE-RSA-AES128-SHA256",
+    "DHE-RSA-AES128-SHA256",
+    "AES128-GCM-SHA256",
+    "RC4",
+    "HIGH",
+    "!MD5",
+    "!aNULL"
+].join(':'),
 };
 
 console.log(httpsOptions);
