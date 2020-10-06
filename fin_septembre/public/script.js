@@ -43,13 +43,18 @@ const peers = {};
 
 navigator.mediaDevices.getUserMedia({
   video: true,
-  audio: true
+  audio: {
+    echoCancellation: true,
+    noiseSuppression: true,
+    sampleRate: 44100
+  }
 }).then(stream => {
   addCamStream(myVideo, stream);
   
   myPeer.on('call', call => {
     call.answer(stream)
     const video = document.createElement('video')
+    video.setAttribute("controls", "");
     call.on('stream', userVideoStream => {
       addCamStream(video, userVideoStream)
     })
@@ -93,6 +98,7 @@ function addCamStream(video, stream) {
 function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
+  video.setAttribute("controls", "");
   call.on('stream', userVideoStream => {
     addCamStream(video, userVideoStream)
   })
