@@ -11,6 +11,7 @@ myPeer.on('open', id => {
 var sharing = false;
 
   
+// MEDIA SELECTIONS
 const videoGrid = document.getElementById('video-grid')
 var outputDevices = [];
 var medias = [];
@@ -31,7 +32,7 @@ navigator.mediaDevices.enumerateDevices()
   });
 })
 
-
+// END MEDIA SELECTIONS
 
 //const myScreen = document.createElement('video');
 //myScreen.muted = true;
@@ -140,7 +141,7 @@ async function screenCapture() {
         myVideo.play()
       })
       screenElem.append(myVideo);
-      myPeer.call(myUserId, mySound)
+      //myPeer.call(myUserId, mySound);
       myPeer.call(myUserId, captureStream);  
       document.getElementById("screen-text").textContent="stop share";
     } catch(err) {
