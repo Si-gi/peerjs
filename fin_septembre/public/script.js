@@ -87,6 +87,7 @@ navigator.mediaDevices.getUserMedia({
   // when press enter send message
   $("html").keydown(function (e) {
     if (e.which == 13 && text.val().length !== 0) {
+      var username = $("#my_username").val();
       socket.emit("message", text.val(), username);
       text.val("");
     }
