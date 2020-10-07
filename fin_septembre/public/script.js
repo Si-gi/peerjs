@@ -32,12 +32,18 @@ navigator.mediaDevices.enumerateDevices()
   });
 })
 
-var username = $("#my_username").val();
+
 
 // END MEDIA SELECTIONS
 
 //const myScreen = document.createElement('video');
 //myScreen.muted = true;
+window.onload = function() {
+  $('#myModal').modal('show');
+};
+$('#myModal').on('hidden.bs.modal', function (e) {
+  var username = $("#my_username").val();
+})
 
 const myVideo = document.createElement('video');
 
