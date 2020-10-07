@@ -43,10 +43,12 @@ window.onload = function() {
 };
 $('#myModal').on('hidden.bs.modal', function (e) {
   //do something
+  console.log("fini");
 })
 function user(){
   $('#myModal').modal('hide')
   var username = $("#my_username").val();
+  console.log(username);
 }
 const myVideo = document.createElement('video');
 
