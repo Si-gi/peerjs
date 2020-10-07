@@ -42,9 +42,12 @@ window.onload = function() {
   $('#myModal').modal('show');
 };
 $('#myModal').on('hidden.bs.modal', function (e) {
-  var username = $("#my_username").val();
+  //do something
 })
-
+function user(){
+  $('#myModal').modal('hide')
+  var username = $("#my_username").val();
+}
 const myVideo = document.createElement('video');
 
 //myVideo.muted = true
