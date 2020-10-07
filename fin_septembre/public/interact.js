@@ -4,7 +4,7 @@ import interact from
 interact('#sidebar')
   .resizable({
     // resize from all edges and corners
-    edges: { left: true, right: true, bottom: true, top: true },
+    edges: { left: true, right: false, bottom: false, top: false },
 
     listeners: {
       move (event) {
@@ -25,7 +25,6 @@ interact('#sidebar')
 
         target.setAttribute('data-x', x)
         target.setAttribute('data-y', y)
-        target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
       }
     },
     modifiers: [
@@ -41,14 +40,4 @@ interact('#sidebar')
     ],
 
     inertia: true
-  })
-  .draggable({
-    listeners: { move: window.dragMoveListener },
-    inertia: true,
-    modifiers: [
-      interact.modifiers.restrictRect({
-        restriction: 'parent',
-        endOnly: true
-      })
-    ]
-  })
+  });
