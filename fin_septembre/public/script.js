@@ -109,7 +109,19 @@ navigator.mediaDevices.getUserMedia({
     }
   };
 
+  $('#toggleMute').on('click', function () {
+    console.log("mute or unmute")
+    const enabled = stream.getAudioTracks()[0].enabled;
+    if (enabled) {
+      stream.getAudioTracks()[0].enabled = false;
+      setUnmuteButton();
+    } else {
+      setMuteButton();
+      stream.getAudioTracks()[0].enabled = true;
+    }
+  });
 });
+
   socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close();
   
@@ -142,16 +154,6 @@ function connectToNewUser(userId, stream) {
   peers[userId] = call
 }
 
-/*function shareScreen(captureStream){
-  myPeer.on('call', call => {
-    call.answer(captureStream)
-    const video = document.createElement('video')
-    call.on('stream', userVideoStream => {
-      getStream(video, userVideoStream)
-    })
-  });
-}
-*/
 
 async function screenCapture() {
   if(!sharing){
@@ -234,6 +236,18 @@ const exit = () => {
 //   navigator.clipboard.writeText(window.location.href);
 // };
 
+const muteUnmute = () => {
+  console.log("mute or unmute")
+  const enabled = stream.getAudioTracks()[0].enabled;
+  if (enabled) {
+    stream.getAudioTracks()[0].enabled = false;
+    setUnmuteButton();
+  } else {
+    setMuteButton();
+    stream.getAudioTracks()[0].enabled = true;
+  }
+};
+
 const setUnmuteButton = () => {
   const html = `
     <i class="unmute fas fa-microphone-slash"></i>
@@ -257,15 +271,6 @@ const setPlayVideo = () => {
   `;
   document.querySelector(".main__video_button").innerHTML = html;
 };
-
-function dumpOptionsInfo() {
-  const videoTrack = screenElem.srcObject.getVideoTracks()[0];
- 
-  console.info("Track settings:");
-  console.info(JSON.stringify(videoTrack.getSettings(), null, 2));
-  console.info("Track constraints:");
-  console.info(JSON.stringify(videoTrack.getConstraints(), null, 2));
-}
 
 function stopCapture(evt) {
   let tracks = screenElem.srcObject.getTracks();
