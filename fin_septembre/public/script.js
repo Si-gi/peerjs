@@ -193,25 +193,25 @@ const scrollToBottom = () => {
 
 const muteUnmute = () => {
   console.log("mute or unmute")
-  const enabled = myVideoStream.getAudioTracks()[0].enabled;
+  const enabled = myVideo.getAudioTracks()[0].enabled;
   if (enabled) {
-    myVideoStream.getAudioTracks()[0].enabled = false;
+    myVideo.getAudioTracks()[0].enabled = false;
     setUnmuteButton();
   } else {
     setMuteButton();
-    myVideoStream.getAudioTracks()[0].enabled = true;
+    myVideo.getAudioTracks()[0].enabled = true;
   }
 };
 
 const playStop = () => {
   console.log("object");
-  let enabled = myVideoStream.getVideoTracks()[0].enabled;
+  let enabled = myVideo.getVideoTracks()[0].enabled;
   if (enabled) {
-    myVideoStream.getVideoTracks()[0].enabled = false;
+    myVideo.getVideoTracks()[0].enabled = false;
     setPlayVideo();
   } else {
     setStopVideo();
-    myVideoStream.getVideoTracks()[0].enabled = true;
+    myVideo.getVideoTracks()[0].enabled = true;
   }
 };
 
