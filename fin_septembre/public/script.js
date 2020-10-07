@@ -32,7 +32,7 @@ navigator.mediaDevices.enumerateDevices()
   });
 })
 
-var username = ("#my_username").val();
+var username = $("#my_username").val();
 
 // END MEDIA SELECTIONS
 
@@ -82,7 +82,8 @@ navigator.mediaDevices.getUserMedia({
   });
   socket.on("createMessage", (message, username) => {
     $("ul").append(`<li class="message"><b>${username}</b><br/>${message}</li>`);
-    console.log("message");
+    console.log(message);
+    console.log(username);
     scrollToBottom();
   });
 });
