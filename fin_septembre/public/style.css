@@ -106,7 +106,7 @@
 
 
 #sidebar.active {
-  margin-right: -250px;
+  margin-right: -350px;
 }
 
 @media (max-width: 768px) {
