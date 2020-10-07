@@ -32,7 +32,7 @@ navigator.mediaDevices.enumerateDevices()
   });
 })
 
-$('#myModal').modal();
+
 // END MEDIA SELECTIONS
 
 //const myScreen = document.createElement('video');

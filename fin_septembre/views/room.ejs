@@ -58,24 +58,37 @@
     window.onbeforeunload = function () {
       return "Dude, are you sure you want to leave? Think!";
     }
+
+    $('#myModal').modal();
+
+    function user(){
+      $('#myModal').modal('hide')
+    }
   </script>
 </head>
 
 <body>
   <!-- Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Modal header</h3>
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="user()">Save changes</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="modal-body">
-        <p>One fine body…</p>
-        <input type="text" class="btn" placeholder="Your Name">
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        <button class="btn btn-primary">Save changes</button>
-    </div>
-</div>
+<!-- END MODAL-->
   <div class="main">
     <div class="main__left">
       <div class="main__videos">
