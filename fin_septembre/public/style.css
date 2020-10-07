@@ -105,5 +105,14 @@
 
 
 #sidebar.active {
-  margin-left: -250px;
+  margin-right: -250px;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+      margin-right: -250px;
+  }
+  #sidebar.active {
+      margin-left: 0;
+  }
 }
