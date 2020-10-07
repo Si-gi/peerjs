@@ -20,8 +20,6 @@ interact('#sidebar')
         x += event.deltaRect.left
         y += event.deltaRect.top
 
-        target.style.webkitTransform = target.style.transform =
-          'translate(' + x + 'px,' + y + 'px)'
 
         target.setAttribute('data-x', x)
         target.setAttribute('data-y', y)
