@@ -102,3 +102,8 @@
   .stop {
     color: #CC3B33;
   }
+
+
+#sidebar.active {
+  margin-left: -250px;
+}
