@@ -96,6 +96,19 @@ navigator.mediaDevices.getUserMedia({
     $("ul").append(`<li class="message"><b>${username}</b><br/>${message}</li>`);
     scrollToBottom();
   });
+
+  const muteUnmute = () => {
+    console.log("mute or unmute")
+    const enabled = stream.getAudioTracks()[0].enabled;
+    if (enabled) {
+      stream.getAudioTracks()[0].enabled = false;
+      setUnmuteButton();
+    } else {
+      setMuteButton();
+      stream.getAudioTracks()[0].enabled = true;
+    }
+  };
+
 });
   socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close();
@@ -191,17 +204,7 @@ const scrollToBottom = () => {
   d.scrollTop(d.prop("scrollHeight"));
 };
 
-const muteUnmute = () => {
-  console.log("mute or unmute")
-  const enabled = myVideo.getAudioTracks()[0].enabled;
-  if (enabled) {
-    myVideo.getAudioTracks()[0].enabled = false;
-    setUnmuteButton();
-  } else {
-    setMuteButton();
-    myVideo.getAudioTracks()[0].enabled = true;
-  }
-};
+
 
 const playStop = () => {
   console.log("object");
