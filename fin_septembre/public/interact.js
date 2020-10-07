@@ -1,4 +1,5 @@
-
+import interact from 
+'https://cdn.jsdelivr.net/npm/@interactjs/interactjs/index.js'
 
 interact('#sidebar')
   .resizable({
