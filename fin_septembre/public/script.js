@@ -236,17 +236,6 @@ const exit = () => {
 //   navigator.clipboard.writeText(window.location.href);
 // };
 
-const muteUnmute = () => {
-  console.log("mute or unmute")
-  const enabled = stream.getAudioTracks()[0].enabled;
-  if (enabled) {
-    stream.getAudioTracks()[0].enabled = false;
-    setUnmuteButton();
-  } else {
-    setMuteButton();
-    stream.getAudioTracks()[0].enabled = true;
-  }
-};
 
 const setUnmuteButton = () => {
   const html = `
