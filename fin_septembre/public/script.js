@@ -94,8 +94,6 @@ navigator.mediaDevices.getUserMedia({
   });
   socket.on("createMessage", (message, username) => {
     $("ul").append(`<li class="message"><b>${username}</b><br/>${message}</li>`);
-    console.log(message);
-    console.log(username);
     scrollToBottom();
   });
 });
@@ -194,6 +192,7 @@ const scrollToBottom = () => {
 };
 
 const muteUnmute = () => {
+  console.log("mute or unmute")
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
   if (enabled) {
     myVideoStream.getAudioTracks()[0].enabled = false;

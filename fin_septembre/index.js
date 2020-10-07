@@ -52,8 +52,6 @@ io.on("connection", (socket) => {
     // messages
     socket.on("message", (message, username) => {
       //send message to the same room
-      console.log(message);
-      console.log(username);
       io.to(roomId).emit("createMessage", message, username);
     });
 
