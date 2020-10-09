@@ -27,7 +27,10 @@ var httpsOptions = {
 ].join(':'),
 };
 
-httpsServer = https.createServer(httpsOptions, app);
+httpsServer = https.createServer(httpsOptions, app, function(req, res){
+  res.writeHead(200);
+  console.log("server cretaed");
+});
 httpsServer.listen(60000, () =>{console.log("https working")});
 const io = require('socket.io').listen(httpsServer,() => {console.log("io working")});
 
@@ -72,7 +75,7 @@ io.on("connection", (socket) => {
 
 server.listen(3000,()=>{
 	console.log("working");
-})
+})/*
 https.createServer(httpsOptions, app).listen(60000,()=>{
 	console.log("https");
-})
+})*/
