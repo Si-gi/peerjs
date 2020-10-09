@@ -70,9 +70,9 @@ io.on("connection", (socket) => {
 });
 
 
-/*server.listen(3000,()=>{
+server.listen(3000,()=>{
 	console.log("working");
 })
 https.createServer(httpsOptions, app).listen(60000,()=>{
 	console.log("https");
-})*/
+})
