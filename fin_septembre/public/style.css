@@ -107,10 +107,10 @@ margin-right: -350px;
 }
 
 @media (max-width: 768px) {
-#sidebar {
+  #sidebar {
     margin-right: -250px;
-}
-#sidebar.active {
+  }
+  #sidebar.active {
     margin-left: 0;
-}
+  }
 }
